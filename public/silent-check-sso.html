@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Silent Check SSO</title>
+</head>
+<body>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('error')) {
+            parent.postMessage({type: 'keycloak-silent-check-sso', error: urlParams.get('error')}, window.location.origin);
+        } else {
+            parent.postMessage({type: 'keycloak-silent-check-sso'}, window.location.origin);
+        }
+    </script>
+</body>
+</html>
